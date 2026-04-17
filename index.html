@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,6 +23,102 @@
       --gray-mid: #6b5c4a;
     }
 
+    /* ── LIGHT MODE OVERRIDES ── */
+    [data-theme="light"] body {
+      background: #FAF8F4;
+      color: #1a1208;
+    }
+    [data-theme="light"] body::before { opacity: 0.15; }
+
+    [data-theme="light"] nav {
+      background: rgba(250,248,244,0.92);
+      border-bottom-color: rgba(201,168,76,0.25);
+    }
+    [data-theme="light"] .nav-logo-text span { color: rgba(26,18,8,0.5); }
+    [data-theme="light"] .nav-links a { color: #1a1208; }
+    [data-theme="light"] .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+    [data-theme="light"] .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 60%),
+        #FAF8F4;
+    }
+    [data-theme="light"] .hero-title { color: #1a1208; }
+    [data-theme="light"] .hero-subtitle { color: rgba(26,18,8,0.55); }
+    [data-theme="light"] .hero-desc { color: rgba(26,18,8,0.65); }
+
+    [data-theme="light"] #shop { background: #FAF8F4; }
+    [data-theme="light"] .product-card { background: #fff; }
+    [data-theme="light"] .product-img { background: #EDE5D8; }
+    [data-theme="light"] .product-img::after { background: linear-gradient(to bottom, transparent 50%, rgba(250,248,244,0.92)); }
+    [data-theme="light"] .product-name { color: #1a1208; }
+    [data-theme="light"] .product-sub { color: rgba(26,18,8,0.45); }
+    [data-theme="light"] .product-info { border-top-color: rgba(26,18,8,0.08); }
+
+    [data-theme="light"] #order { background: linear-gradient(180deg, #FAF8F4 0%, #F5EFE4 100%); }
+    [data-theme="light"] .order-note { background: rgba(201,168,76,0.07); color: rgba(26,18,8,0.7); }
+    [data-theme="light"] .form-input,
+    [data-theme="light"] .form-select,
+    [data-theme="light"] .form-textarea {
+      background: rgba(26,18,8,0.03);
+      border-color: rgba(26,18,8,0.12);
+      border-bottom-color: rgba(201,168,76,0.4);
+      color: #1a1208;
+    }
+    [data-theme="light"] .form-input::placeholder,
+    [data-theme="light"] .form-textarea::placeholder { color: rgba(26,18,8,0.3); }
+    [data-theme="light"] .form-input:focus,
+    [data-theme="light"] .form-select:focus,
+    [data-theme="light"] .form-textarea:focus { background: rgba(201,168,76,0.05); }
+    [data-theme="light"] .form-select option { background: #FAF8F4; color: #1a1208; }
+    [data-theme="light"] .checkbox-item label { color: rgba(26,18,8,0.7); }
+    [data-theme="light"] .form-submit-note { color: rgba(26,18,8,0.45); }
+
+    [data-theme="light"] #about { background: #F0E8D8; border-color: rgba(201,168,76,0.15); }
+    [data-theme="light"] .pillar { border-color: rgba(26,18,8,0.08); background: rgba(255,255,255,0.6); }
+    [data-theme="light"] .pillar-desc { color: rgba(26,18,8,0.55); }
+    [data-theme="light"] .section-title { color: #1a1208; }
+    [data-theme="light"] .section-desc { color: rgba(26,18,8,0.6); }
+
+    [data-theme="light"] footer { background: #EDE5D8; border-top-color: rgba(201,168,76,0.15); }
+    [data-theme="light"] .footer-brand p { color: rgba(26,18,8,0.45); }
+    [data-theme="light"] .footer-links a { color: rgba(26,18,8,0.5); }
+    [data-theme="light"] .footer-bottom { border-top-color: rgba(26,18,8,0.08); }
+    [data-theme="light"] .footer-bottom p { color: rgba(26,18,8,0.35); }
+
+    [data-theme="light"] .success-msg { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.35); }
+    [data-theme="light"] .success-msg p { color: var(--gold-dim); }
+
+    /* ── THEME TOGGLE BUTTON ── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    /* ── NAV LOGO MARK ── */
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -31,6 +127,7 @@
       font-family: 'Jost', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     /* ── NOISE OVERLAY ── */
@@ -56,6 +153,12 @@
       background: rgba(10,10,10,0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(201,168,76,0.15);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
     }
 
     .nav-logo {
@@ -64,9 +167,21 @@
       letter-spacing: 0.3em;
       color: var(--gold);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
     }
 
-    .nav-logo span {
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+    }
+
+    .nav-logo-text span {
       font-size: 0.65rem;
       display: block;
       letter-spacing: 0.25em;
@@ -714,15 +829,36 @@
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">
-      OEAIH
-      <span>On Earth, As It Is In Heaven</span>
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1"/>
+        <line x1="16" y1="4" x2="16" y2="28" stroke="currentColor" stroke-width="0.9"/>
+        <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="0.9"/>
+        <polygon points="16,9 17.2,13.5 21.8,13.5 18.3,16.2 19.5,20.7 16,18 12.5,20.7 13.7,16.2 10.2,13.5 14.8,13.5" fill="currentColor" opacity="0.55"/>
+      </svg>
+      <span class="nav-logo-text">
+        OEAIH
+        <span>On Earth, As It Is In Heaven</span>
+      </span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#shop">Shop</a></li>
-      <li><a href="#order">Custom Order</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#order" class="btn-primary" style="padding:0.5rem 1.2rem">Order Now</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#order">Custom Order</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#order" class="btn-primary" style="padding:0.5rem 1.2rem">Order Now</a></li>
+      </ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -732,6 +868,12 @@
     <div class="hero-line"></div>
     <div class="hero-line"></div>
     <div class="hero-content">
+      <svg style="width:64px;height:64px;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fadeUp 1s ease 0.1s forwards" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="16" y1="4" x2="16" y2="28" stroke="currentColor" stroke-width="0.7"/>
+        <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="0.7"/>
+        <polygon points="16,9 17.2,13.5 21.8,13.5 18.3,16.2 19.5,20.7 16,18 12.5,20.7 13.7,16.2 10.2,13.5 14.8,13.5" fill="currentColor" opacity="0.7"/>
+      </svg>
       <p class="hero-eyebrow">Crafted with intention</p>
       <h1 class="hero-title">OE<span>A</span>IH</h1>
       <p class="hero-subtitle">On Earth, As It Is In Heaven</p>
@@ -1011,7 +1153,15 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#hero" class="nav-logo">OEAIH</a>
+          <a href="#hero" class="nav-logo">
+            <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1"/>
+              <line x1="16" y1="4" x2="16" y2="28" stroke="currentColor" stroke-width="0.9"/>
+              <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="0.9"/>
+              <polygon points="16,9 17.2,13.5 21.8,13.5 18.3,16.2 19.5,20.7 16,18 12.5,20.7 13.7,16.2 10.2,13.5 14.8,13.5" fill="currentColor" opacity="0.55"/>
+            </svg>
+            <span class="nav-logo-text">OEAIH</span>
+          </a>
           <p>On Earth, As It Is In Heaven. Custom designs for businesses, ministries, and individuals — crafted with purpose and built to reflect something greater.</p>
         </div>
         <div class="footer-links">
@@ -1039,6 +1189,19 @@
   </footer>
 
   <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('oeaih-theme', isDark ? 'light' : 'dark');
+    }
+    // Restore saved theme
+    (function() {
+      const saved = localStorage.getItem('oeaih-theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+
     function submitOrder() {
       const fname = document.getElementById('fname').value.trim();
       const email = document.getElementById('email').value.trim();
